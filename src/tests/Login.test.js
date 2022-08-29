@@ -14,7 +14,6 @@ const VALID_PASSWORD = 'thirteen';
 describe('test Login component', () => {
   it('the page should render at "/"', () => {
     const { location: { pathname } } = history;
-
     expect(pathname).toBe('/');
   });
 
@@ -59,7 +58,8 @@ describe('test Login component', () => {
 
     userEvent.click(loginBtn);
 
-    const { location: { pathname } } = history;
-    expect(pathname).toBe('/carteira');
+    const addExpenseBtn = screen.getByRole('button', { name: /adicionar despesa/i });
+    expect(addExpenseBtn).toBeInTheDocument();
+    expect(loginBtn).not.toBeInTheDocument();
   });
 });
