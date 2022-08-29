@@ -4,7 +4,8 @@ export const LOGIN_SUBMIT = 'LOGIN_SUBMIT';
 
 export const GET_CURRENCY = 'GET_CURRENCY';
 export const GET_CURRENCY_ERROR = 'GET_CURRENCY_ERROR';
-export const ADD_EXPENSES = 'ADD_EXPENSES';
+export const ADD_EXPENSE = 'ADD_EXPENSE';
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 
 export const submitLoginForm = (email) => ({
   type: LOGIN_SUBMIT,
@@ -14,7 +15,9 @@ export const submitLoginForm = (email) => ({
 const getCurrency = (currencies) => ({ type: GET_CURRENCY, currencies });
 const errorCurrency = (error) => ({ type: GET_CURRENCY_ERROR, error });
 
-export const addExpenses = (expenses) => ({ type: ADD_EXPENSES, expenses });
+export const addExpense = (expense) => ({ type: ADD_EXPENSE, expense });
+
+export const deleteExpense = (expense) => ({ type: DELETE_EXPENSE, expense });
 
 export const fetchCurrency = () => async (dispatch) => {
   try {

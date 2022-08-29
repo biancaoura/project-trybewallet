@@ -5,12 +5,15 @@ import { string, arrayOf, shape } from 'prop-types';
 class Header extends Component {
   render() {
     const { email, expenses } = this.props;
+
     const getRates = expenses.reduce((total, curr) => {
       const currentCurrency = curr.exchangeRates[curr.currency];
       const currentRate = currentCurrency.ask * curr.value;
+
       const rate = Number((currentRate).toFixed(2));
-      return total + rate;
-    }, 0);
+      return Number(total) + rate;
+    }, '0.00');
+
     return (
       <section>
         <p data-testid="email-field">{email}</p>

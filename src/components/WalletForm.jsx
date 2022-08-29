@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { func, arrayOf, string } from 'prop-types';
-import { addExpenses, fetchCurrency } from '../redux/actions';
+import { addExpense, fetchCurrency } from '../redux/actions';
 import currencyAPI from '../helpers/currencyAPI';
 
 class WalletForm extends Component {
@@ -33,7 +33,7 @@ class WalletForm extends Component {
     const data = await currencyAPI();
     this.setState({ exchangeRates: data });
 
-    dispatch(addExpenses(this.state));
+    dispatch(addExpense(this.state));
     this.setState({ id: id + 1, value: '', description: '' });
   };
 
