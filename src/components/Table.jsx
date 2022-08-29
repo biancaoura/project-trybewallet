@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { arrayOf, shape, func } from 'prop-types';
-import { deleteExpense } from '../redux/actions';
+import { deleteExpense, setToEdit } from '../redux/actions';
 
 class Table extends Component {
-  handleClick = ({ target }) => {
+  handleRemove = ({ target }) => {
     const { expenses, dispatch } = this.props;
 
     const elementToDelete = expenses.filter(({ id }) => id !== Number(target.id));
     dispatch(deleteExpense(elementToDelete));
+  };
+
+  handleEdit = ({ target }) => {
+    const { dispatch } = this.props;
+
+    const elementToEdit = Number(target.id);
+    dispatch(setToEdit(elementToEdit));
   };
 
   render() {
@@ -46,8 +53,17 @@ class Table extends Component {
                     <button
                       id={ id }
                       type="button"
+                      onClick={ this.handleEdit }
+                      data-testid="edit-btn"
+                    >
+                      Editar
+                    </button>
+
+                    <button
+                      id={ id }
+                      type="button"
+                      onClick={ this.handleRemove }
                       data-testid="delete-btn"
-                      onClick={ this.handleClick }
                     >
                       Excluir
                     </button>

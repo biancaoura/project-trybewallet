@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { func, arrayOf, string } from 'prop-types';
-import { addExpense, fetchCurrency } from '../redux/actions';
+import { func, arrayOf, string, bool, number, oneOfType, shape } from 'prop-types';
+import { addExpense, fetchCurrency, editExpense } from '../redux/actions';
 import currencyAPI from '../helpers/currencyAPI';
 
 class WalletForm extends Component {
@@ -20,25 +20,51 @@ class WalletForm extends Component {
     dispatch(fetchCurrency());
   }
 
+  componentDidUpdate(prevProps) {
+    const { isEditing } = this.props;
+    if (prevProps.isEditing !== isEditing) this.handleEdit();
+  }
+
+  handleEdit = () => {
+    const { isEditing, editingId, expenses } = this.props;
+
+    if (isEditing) {
+      const editingExpense = expenses.find(({ id }) => id === editingId);
+      this.setState({ ...editingExpense });
+    } else {
+      this.setState({
+        value: '',
+        currency: 'USD',
+        method: 'Dinheiro',
+        tag: 'Alimentação',
+        description: '',
+      });
+    }
+  };
+
   handleChange = ({ target }) => {
     const { name, value } = target;
     this.setState({ [name]: value });
   };
 
-  handleClick = async (e) => {
-    e.preventDefault();
-    const { dispatch } = this.props;
+  handleClick = async () => {
+    const { dispatch, isEditing, expenses } = this.props;
     const { id } = this.state;
 
-    const data = await currencyAPI();
-    this.setState({ exchangeRates: data });
+    if (isEditing) {
+      dispatch(editExpense(this.state));
+      this.setState({ id: expenses.length });
+    } else {
+      const data = await currencyAPI();
+      this.setState({ exchangeRates: data });
 
-    dispatch(addExpense(this.state));
-    this.setState({ id: id + 1, value: '', description: '' });
+      dispatch(addExpense(this.state));
+      this.setState({ id: id + 1, value: '', description: '' });
+    }
   };
 
   render() {
-    const { currencies } = this.props;
+    const { currencies, isEditing } = this.props;
     const { value, currency,
       method, tag, description } = this.state;
 
@@ -119,7 +145,10 @@ class WalletForm extends Component {
           />
         </label>
 
-        <button type="submit" onClick={ this.handleClick }>Adicionar despesa</button>
+        <button type="button" onClick={ this.handleClick }>
+          { isEditing ? 'Editar despesa' : 'Adicionar despesa' }
+
+        </button>
       </section>
     );
   }
@@ -132,6 +161,9 @@ const mapStateToProps = (state) => ({
 WalletForm.propTypes = {
   dispatch: func.isRequired,
   currencies: arrayOf(string).isRequired,
+  isEditing: bool.isRequired,
+  editingId: oneOfType([number, string]).isRequired,
+  expenses: arrayOf(shape()).isRequired,
 };
 
 export default connect(mapStateToProps)(WalletForm);
