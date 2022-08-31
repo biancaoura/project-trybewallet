@@ -9,10 +9,8 @@ class Header extends Component {
     const getRates = expenses.reduce((total, curr) => {
       const currentCurrency = curr.exchangeRates[curr.currency];
       const currentRate = currentCurrency.ask * curr.value;
-
-      const rate = Number((currentRate).toFixed(2));
-      return Number(total) + rate;
-    }, '0.00');
+      return Number(total) + currentRate;
+    }, 0);
 
     return (
       <header>
@@ -20,7 +18,7 @@ class Header extends Component {
         <p>
           Despesa total:
           <span>
-            {getRates}
+            {getRates.toFixed(2)}
           </span>
           <span>
             BRL
