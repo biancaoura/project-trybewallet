@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/app-toot-name/static/css/main.105acd1e.css",
-    "main.js": "/app-toot-name/static/js/main.970c8a0b.js",
-    "index.html": "/app-toot-name/index.html",
-    "main.105acd1e.css.map": "/app-toot-name/static/css/main.105acd1e.css.map",
-    "main.970c8a0b.js.map": "/app-toot-name/static/js/main.970c8a0b.js.map"
+    "main.css": "/project-trybewallet/static/css/main.105acd1e.css",
+    "main.js": "/project-trybewallet/static/js/main.970c8a0b.js",
+    "index.html": "/project-trybewallet/index.html",
+    "main.105acd1e.css.map": "/project-trybewallet/static/css/main.105acd1e.css.map",
+    "main.970c8a0b.js.map": "/project-trybewallet/static/js/main.970c8a0b.js.map"
   },
   "entrypoints": [
     "static/css/main.105acd1e.css",
