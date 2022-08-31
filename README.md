@@ -7,7 +7,7 @@
 ### Login page:
 
 - Login with valid e-mail and password
-- Redirect to `/wallet`
+- Redirect to `/carteira`
 
 ### Wallet page:
 #### Header component:
@@ -34,7 +34,13 @@
 
 ### Test cases using _Jest_ with _React Testing Library_
 
+##
+
 #### First project using Redux
+
+##
+
+#### using API: `https://economia.awesomeapi.com.br`
 
 [Check it out!](https://biancaoura.github.io/project-trybewallet/)
 
