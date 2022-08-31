@@ -1,16 +1,45 @@
-# 🚧 README em construção 🚧
+# Trybewallet Project
 
-<!-- Olá, Tryber!
+## Goals
 
-Esse é apenas um arquivo inicial para o README do seu projeto.
+### Develop a personal finance application:
 
-É essencial que você preencha esse documento por conta própria, ok?
+### Login page:
 
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
+- Login with valid e-mail and password
+- Redirect to `/wallet`
 
-⚠️ IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
+### Wallet page:
+#### Header component:
 
--->
+- Display user's e-mail
+- Display total expenses in BRL;
+
+#### Form component:
+
+- Input fields:
+  - add expense value;
+  - choose currency;
+  - choose payment method;
+  - add a tag;
+  - write a description.
+
+#### Table component:
+
+- Display a list of expenses with the information provided, plus:
+  - exchange rate (when expense was added to the list);
+  - converted value;
+  - conversion currency;
+  - `edit` and `delete` options.
+
+### Test cases using _Jest_ with _React Testing Library_
+
+#### First project using Redux
+
+[Check it out!](https://biancaoura.github.io/project-trybewallet/)
+
+##
+
+> Project developed with React and Redux
+
+> /tests/helpers files provided by Trybe
