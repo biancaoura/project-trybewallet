@@ -15,18 +15,18 @@ class Header extends Component {
     }, '0.00');
 
     return (
-      <section>
-        <p data-testid="email-field">{email}</p>
+      <header>
+        <p>{email}</p>
         <p>
           Despesa total:
-          <span data-testid="total-field">
+          <span>
             {getRates}
           </span>
-          <span data-testid="header-currency-field">
+          <span>
             BRL
           </span>
         </p>
-      </section>
+      </header>
     );
   }
 }

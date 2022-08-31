@@ -53,7 +53,6 @@ class Login extends Component {
             placeholder="E-mail"
             value={ email }
             onChange={ this.handleChange }
-            data-testid="email-input"
           />
           <input
             type="password"
@@ -62,7 +61,6 @@ class Login extends Component {
             placeholder="Senha"
             value={ password }
             onChange={ this.handleChange }
-            data-testid="password-input"
           />
           <button type="submit" onClick={ this.handleClick } disabled={ isDisabled }>
             Entrar

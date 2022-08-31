@@ -79,7 +79,6 @@ class WalletForm extends Component {
             placeholder="Valor da despesa"
             value={ value }
             onChange={ this.handleChange }
-            data-testid="value-input"
           />
         </label>
 
@@ -88,7 +87,6 @@ class WalletForm extends Component {
           <select
             name="currency"
             id="currency"
-            data-testid="currency-input"
             value={ currency }
             onChange={ this.handleChange }
           >
@@ -107,7 +105,6 @@ class WalletForm extends Component {
             id="method"
             value={ method }
             onChange={ this.handleChange }
-            data-testid="method-input"
           >
             <option value="Dinheiro">Dinheiro</option>
             <option value="Cartão de crédito">Cartão de crédito</option>
@@ -122,7 +119,6 @@ class WalletForm extends Component {
             id="tag"
             value={ tag }
             onChange={ this.handleChange }
-            data-testid="tag-input"
           >
             <option value="Alimentação">Alimentação</option>
             <option value="Lazer">Lazer</option>
@@ -141,7 +137,6 @@ class WalletForm extends Component {
             placeholder="Descrição"
             value={ description }
             onChange={ this.handleChange }
-            data-testid="description-input"
           />
         </label>
 
