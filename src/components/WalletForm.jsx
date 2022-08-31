@@ -69,7 +69,9 @@ class WalletForm extends Component {
       method, tag, description } = this.state;
 
     return (
-      <section>
+      <section
+        className="box is-flex is-justify-content-space-around is-align-items-center"
+      >
         <label htmlFor="value">
           Valor
           <input
@@ -79,6 +81,7 @@ class WalletForm extends Component {
             placeholder="Valor da despesa"
             value={ value }
             onChange={ this.handleChange }
+            className="input"
           />
         </label>
 
@@ -89,6 +92,7 @@ class WalletForm extends Component {
             id="currency"
             value={ currency }
             onChange={ this.handleChange }
+            className="input"
           >
             { currencies.map((el) => (
               <option key={ el } value={ el }>
@@ -105,6 +109,7 @@ class WalletForm extends Component {
             id="method"
             value={ method }
             onChange={ this.handleChange }
+            className="input"
           >
             <option value="Dinheiro">Dinheiro</option>
             <option value="Cartão de crédito">Cartão de crédito</option>
@@ -119,6 +124,7 @@ class WalletForm extends Component {
             id="tag"
             value={ tag }
             onChange={ this.handleChange }
+            className="input"
           >
             <option value="Alimentação">Alimentação</option>
             <option value="Lazer">Lazer</option>
@@ -137,10 +143,15 @@ class WalletForm extends Component {
             placeholder="Descrição"
             value={ description }
             onChange={ this.handleChange }
+            className="input"
           />
         </label>
 
-        <button type="button" onClick={ this.handleClick }>
+        <button
+          type="button"
+          onClick={ this.handleClick }
+          className="button is-info"
+        >
           { isEditing ? 'Editar despesa' : 'Adicionar despesa' }
 
         </button>

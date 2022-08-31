@@ -13,9 +13,10 @@ class Header extends Component {
     }, 0);
 
     return (
-      <header>
-        <p>{email}</p>
-        <p>
+      <header
+        className="section is-flex is-justify-content-space-between"
+      >
+        <p className="is-size-5">
           Despesa total:
           <span>
             {getRates.toFixed(2)}
@@ -24,6 +25,7 @@ class Header extends Component {
             BRL
           </span>
         </p>
+        <p>{email}</p>
       </header>
     );
   }

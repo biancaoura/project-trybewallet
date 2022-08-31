@@ -21,7 +21,7 @@ class Table extends Component {
   render() {
     const { expenses } = this.props;
     return (
-      <table>
+      <table className="table is-striped is-hoverable is-fullwidth">
         <thead>
           <tr>
             <th>Descrição</th>
@@ -53,6 +53,7 @@ class Table extends Component {
                     id={ id }
                     type="button"
                     onClick={ this.handleEdit }
+                    className="button is-warning is-light is-small"
                   >
                     Editar
                   </button>
@@ -61,6 +62,7 @@ class Table extends Component {
                     id={ id }
                     type="button"
                     onClick={ this.handleRemove }
+                    className="button is-danger is-light is-small"
                   >
                     Excluir
                   </button>

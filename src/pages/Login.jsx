@@ -43,30 +43,45 @@ class Login extends Component {
   render() {
     const { email, password, isDisabled } = this.state;
     return (
-      <main>
-        <h1>Login</h1>
-        <form>
-          <input
-            type="text"
-            name="email"
-            id="email"
-            placeholder="E-mail"
-            value={ email }
-            onChange={ this.handleChange }
-          />
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Senha"
-            value={ password }
-            onChange={ this.handleChange }
-          />
-          <button type="submit" onClick={ this.handleClick } disabled={ isDisabled }>
+      <div className="pt-6">
+        <form className="box column is-two-fifths m-auto">
+          <h1 className="title is-2">Login</h1>
+          <div className="field">
+            <label htmlFor="email" className="label">
+              E-mail
+              <input
+                type="text"
+                name="email"
+                id="email"
+                placeholder="exemplo@exemplo.com"
+                value={ email }
+                onChange={ this.handleChange }
+                className="input"
+              />
+            </label>
+          </div>
+          <label htmlFor="password" className="label">
+            Senha
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="*******"
+              value={ password }
+              onChange={ this.handleChange }
+              className="input"
+            />
+          </label>
+          <button
+            type="submit"
+            onClick={ this.handleClick }
+            disabled={ isDisabled }
+            className={ isDisabled ? 'button is-white' : 'button is-success' }
+          >
             Entrar
           </button>
         </form>
-      </main>
+      </div>
     );
   }
 }
