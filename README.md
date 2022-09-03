@@ -13,7 +13,7 @@
 #### Header component:
 
 - Display user's e-mail
-- Display total expenses in BRL;
+- Display total expenses in BRL
 
 #### Form component:
 
